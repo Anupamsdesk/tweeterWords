@@ -1,0 +1,21 @@
+{
+  "name": "timesheet-fe",
+  "version": "0.0.0",
+  "authors": [
+    "Anupam Singh <anupamsdesk@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "app/lib",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-less": "~3.2.0",
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.23",
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+    "moment": "~2.8.2"
+  }
+}
