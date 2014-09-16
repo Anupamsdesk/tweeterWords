@@ -23,6 +23,10 @@ bower install
 # Rebuild styles
 gulp build-less
 
+# Enter twitter api configuration details in config.js
+vi config.js
+
+
 # Start the server
 node app
 ```
