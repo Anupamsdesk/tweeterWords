@@ -1,14 +1,112 @@
 @import './../lib/bootstrap-less/less/bootstrap.less';
 @import 'myvariables.less';
 
-body{
-  margin-top: @navbar-height* 1.5;
+@base-bar-color: #EEE1A0;
+@dashboard-background-color: #F6F3DF;
+@base-border-color: darken(@dashboard-background-color, 20%);
+@navbar-background-color: #b9ad6b;
+.body-content{
+  margin-top: @navbar-height* 1;
 }
+
 .navbar{
+	background-color: @navbar-background-color;
   height: @navbar-height;
   min-height: @navbar-height; 
   .navbar-brand{
     height: @navbar-height;
     padding: 5px 5px;
+    color: darken(@navbar-background-color,10%);
   }
+  .navbar-brand:hover{
+  	color: darken(@navbar-background-color,30%);
+  }
+}
+
+.chart{
+	display: inline;
+}
+ .dashboard{
+ 	height: 200px;
+ 	background-color: @dashboard-background-color;
+ 	border-color: @base-border-color;
+ }
+
+.statistics{
+	display: inline;
+	float: right;
+	text-align: center;
+
+
+	.stat{
+		display: inline-block;
+		width: 150px;
+		border-radius: 5px;
+		border-width: 1px;
+		border-style: solid;
+		text-align: center;
+		margin-bottom: 10px;
+		background-color: @base-bar-color;
+		color: darken(@dashboard-background-color, 60%);
+		border-color: @base-border-color;
+	}
+	.stat-head{
+		display: block;
+		font-weight: bold;
+	}
+	.stat-text{
+		font-size: 48px;
+	}
+	.stat-text-small{
+		font-size: 32px;
+	}
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #27172B;
+    shape-rendering: crispEdges;
+}
+.axis path{
+    fill: none;
+    stroke: none;
+}
+.bar {
+    fill: @base-bar-color;
+}
+
+
+
+
+.tweet-list{
+	height: 350px;
+	overflow-y: scroll;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @base-border-color;
+	font-size: smaller;
+}
+.tweet{
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+
+	line-height: 30px;
+	margin: 5px;
+	padding: 5px;
+	background-color: @dashboard-background-color;
+	border-color: @base-border-color;
+	color: darken(@dashboard-background-color, 70%);
+
+	.username{
+		font-weight: bold;
+	}
+	.text{
+		font-style: italic;
+	}
+	.created{
+		display: block;
+		text-align: right;
+	}
 }

@@ -36,14 +36,6 @@ gulp.task('serve',['watch-less'], function(){
 });
 
 
-gulp.task('greet', function(){
-  console.log('Greetings from gulp!');
-});
 
-gulp.task('bye', function(){
-  console.log('Exitting gulp....Bye!');
-});
-
-
-gulp.task('default', ['greet','bye'], function(){
+gulp.task('default', ['serve'], function(){
 });

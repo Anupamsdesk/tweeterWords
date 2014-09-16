@@ -3,14 +3,17 @@
   <head>
     <title> Index Page </title>
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/underscore/underscore-min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
     <script src="/lib/angular-route/angular-route.min.js"></script>
-    <script src="/lib/oauth-js/dist/oauth.min.js"></script>
+    <script src="/lib/angular-socket-io/socket.min.js"></script>
+    <script src="/lib/moment/min/moment.min.js"></script>
+    <script src="/lib/d3/d3.min.js"></script>
   </head>
   <body ng-app='app' ng-controller='appCtrl'>
-    <div class='navbar navbar-inverse navbar-fixed-top'>
+    <div class='navbar navbar-fixed-top'>
       <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -23,11 +26,57 @@
       </div>
     </div>
 
-    <div class="container">
-     
-    </div>    
+    <div class="container body-content">
+      
+      <div class="form">
+        <div class="form-group">
+          <div class="input-group">
+          <input class='form-control' ype='text' ng-model='searchString'
+            placeholder='enter a word or phrase to search'/>
+          
+          <div class="btn btn-info input-group-addon"  ng-click='clicked()'>{{toggleBtnText}}</div>  
+          </div>
+        </div>
+      </div>
+      <div class='alert alert-danger' ng-show='status.error'>
+        There was an error: {{status.message}}. Please try after some time. 
+      </div>
+      
+      <div ng-show='status.hasSearched'>
+        <div class="well dashboard">
+            <bar-chart height="chart.height" data="chart.data" hovered="hovered(args)"></bar-chart>    
+            <div class='statistics'>
+              <div class='stat'> 
+                <span class='stat-head'># tweets </span>
+                <span class='stat-text'>{{totalTweets}}</span>
+              </div>
+              <div class='stat'> 
+                <span class='stat-head'>avg. per minute</span>
+                <span class='stat-text'>{{averageTweets}}</span>
+              </div>
+              <br/>
+              <div class='stat'> 
+                <span class='stat-head'>elapsed time</span>
+                <span class='stat-text-small'><span class='small'>{{timer.min}}</span>m <span class='small'>{{timer.sec}}</span>s</span>
+              </div>
+            </div>
+        </div>
+        
+        <hr/>
+        <div class='row'>
+          <div container-list item-template='tweet-item'
+            class-names='list-unstyled  tweet-list' 
+            show='true' selected-id='selectedId'>
+          </div>
+      </div>    
+
+    </div>
     
     <!-- User scripts -->
     <script src='/js/app.js'></script>
+    <script src='/js/directives/container-list/main.js'></script>
+    <script src='/js/directives/tweet-item/main.js'></script>
+    <script src='/js/chart.js'></script>
+    <script src='/js/directives/bar-chart/main.js'></script>
   </body>
 </html> 

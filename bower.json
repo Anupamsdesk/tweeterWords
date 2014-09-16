@@ -1,6 +1,6 @@
 {
-  "name": "timesheet-fe",
-  "version": "0.0.0",
+  "name": "tweeterwords",
+  "version": "1.0.0",
   "authors": [
     "Anupam Singh <anupamsdesk@gmail.com>"
   ],
@@ -17,6 +17,8 @@
     "jquery": "~2.1.1",
     "underscore": "~1.7.0",
     "moment": "~2.8.2",
-    "oauth-js": "~0.2.4"
+    "oauth-js": "~0.2.4",
+    "angular-socket-io": "~0.6.0",
+    "d3": "~3.4.11"
   }
 }

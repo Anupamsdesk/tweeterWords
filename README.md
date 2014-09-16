@@ -1,2 +1,2 @@
 #tweeterWords
-A word analysis app for tweeter
+A real-time word analysis app for tweeter
