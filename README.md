@@ -2,8 +2,9 @@
 A simplistic real-time word analysis app for tweeter. Search for a word or phrase in twitter and get the latest tweets along with some analytics.
 
 ##Working app
-This application is deployed in http://ancient-castle-3606.herokuapp.com/ for demo purposes. A snapshot file is also included in the code directory.
+This application is deployed in http://ancient-castle-3606.herokuapp.com/ for demo purposes. 
 
+![Alt text](snapshot.png?raw=true "Screen shot")
 
 ##Uses
 Node JS, Express JS and Socket.io in the server side.
