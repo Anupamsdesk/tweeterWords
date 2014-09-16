@@ -131,7 +131,8 @@ app.controller('appCtrl', ['$scope', '$rootScope','TweetService','TimeService',
   }
 
   $rootScope.$on('newitem', function(data){
-    var iDiffInMins = TimeService.getTimeOffsetM($scope.startTime)
+    var offset = TimeService.getTimeOffsetMS($scope.startTime);
+    var iDiffInMins = offset.min;
     $scope.totalTweets ++;
 
     while (iDiffInMins >= $scope.chart.data.length){
@@ -140,8 +141,8 @@ app.controller('appCtrl', ['$scope', '$rootScope','TweetService','TimeService',
     $scope.$broadcast('dataupdated', $scope.chart.data);
     $scope.chart.data[iDiffInMins] += 1;
     
-    iDiffInMins = iDiffInMins < 1 ? 1: iDiffInMins;
-    $scope.averageTweets = ($scope.totalTweets===0) ? 0 : (parseFloat($scope.totalTweets / iDiffInMins)).toFixed(1);
+    var time = iDiffInMins + (offset.sec /60.0);
+    $scope.averageTweets = (iDiffInMins === 0) ? $scope.totalTweets : (parseFloat($scope.totalTweets / time)).toFixed(1);
   });
 
   $rootScope.$on('tweeterror',function(evt, data){
